@@ -12,6 +12,7 @@ def hello():
 def getProducts():
     PRODUCTS = [
         { 'id': 1, 'name': 'Skello' },
-        { 'id': 2, 'name': 'Socialive.tv' }
+        { 'id': 2, 'name': 'Socialive.tv' },
+        { 'id': 3, 'name': 'LaGrosseRadio.tv' }
     ]
     return jsonify(PRODUCTS)
