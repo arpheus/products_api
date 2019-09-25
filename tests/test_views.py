@@ -12,3 +12,13 @@ class TestViews(TestCase):
         products = response.json
         self.assertIsInstance(products, list)
         self.assertGreater(len(products), 2) # 2 is not a mistake here.
+
+    def test_read_products_json(self):
+        id = 2
+        response = self.client.get(f"/api/v1/products/{id}")
+        product = response.json
+        self.assertIsInstance(product, dict)
+        self.assertEqual(product['id'],id)
+        id = 5
+        response = self.client.get(f"/api/v1/products/{id}")
+        self.assertEqual(response.status,"404 NOT FOUND")
