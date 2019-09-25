@@ -20,7 +20,7 @@ class TestViews(TestCase):
         product = response.json
         self.assertIsInstance(product, dict)
         self.assertEqual(product['id'],id)
-        id = 5
+        id = 99
         response = self.client.get(f"/api/v1/products/{id}")
         self.assertEqual(response.status,"404 NOT FOUND")
 
