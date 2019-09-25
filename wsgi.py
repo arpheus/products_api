@@ -16,3 +16,8 @@ def getProducts():
         { 'id': 3, 'name': 'LaGrosseRadio.tv' }
     ]
     return jsonify(PRODUCTS)
+
+@app.route('api/v1/products', methods=['POST'])
+def createProduct():
+    #payload = request.get_json()
+    pass
