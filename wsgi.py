@@ -49,7 +49,6 @@ def getProduct(post_id):
 @app.route('/api/v1/products', methods=['POST'])
 def createProduct():
     payload = request.get_json(silent=True,force=True)
-    pdb.set_trace()
     if payload != None and type(payload) is dict and "name" in list(payload):
         #generate new id
         new_id = id_factory.next()
