@@ -25,17 +25,18 @@ class TestViews(TestCase):
         self.assertEqual(response.status,"404 NOT FOUND")
 
     def test_create_products(self):
-        response = self.client.post(path='/api/v1/products',json='{"name": "toto"}')
+        response = self.client.post(path='/api/v1/products',json={"name": "toto"})
         json = response.json
         #test the return code, should be 201 CREATED
-        self.assertEqual(response.status,201)
+        self.assertEqual(response.status, "201 CREATED")
+        self.assertIsInstance(json, dict)
         #test the returned object, should be a product with id and name
-        self.assertIs(["id","name"],list(json))
+        self.assertEqual(["id","name"],list(json))
 
     def test_create_fails_if_no_name_provided(self):
-        response = self.client.post(path='/api/v1/products',json='{}')
+        response = self.client.post(path='/api/v1/products',json={})
         json = response.json
         #test the return code, should be 422 UNPROCESSABLE ENTITY
-        self.assertEqual(response.status,422)
+        self.assertEqual(response.status, "422 UNPROCESSABLE ENTITY")
         #test the returned object, should be None
         self.assertEqual(json, None)
