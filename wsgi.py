@@ -48,6 +48,7 @@ def getProduct(post_id):
 
 @app.route('/api/v1/products', methods=['POST'])
 def createProduct():
+    global PRODUCTS
     payload = request.get_json(silent=True,force=True)
     if payload != None and type(payload) is dict and "name" in list(payload):
         #generate new id
