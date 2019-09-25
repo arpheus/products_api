@@ -42,5 +42,3 @@ def getProduct(post_id):
         PRODUCT = {}
         abort (404)
 
-
-
